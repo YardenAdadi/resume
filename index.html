@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#f7f5f0">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yarden Adady — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Mono:wght@300;400&family=Syne:wght@600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #f7f5f0;
+      --surface:   #eeeae2;
+      --border:    rgba(0,0,0,0.1);
+      --accent:    #9a7040;
+      --text:      #1a1812;
+      --muted:     #5a5248;
+      --highlight: rgba(154,112,64,0.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: #f7f5f0; }
+
+    body {
+      background: #f7f5f0;
+      color: #1a1812;
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(247,245,240,0.93);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      color: #5a5248;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Container ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Hero ── */
+    #hero {
+      padding: 5.5rem 0 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid-line {
+      position: absolute; top: 0; bottom: 0;
+      width: 1px; background: rgba(0,0,0,0.05);
+    }
+    .hero-grid-line:nth-child(1) { left: 25%; }
+    .hero-grid-line:nth-child(2) { left: 50%; }
+    .hero-grid-line:nth-child(3) { left: 75%; }
+
+    .hero-bg-text {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(6rem, 18vw, 14rem);
+      font-weight: 600;
+      color: rgba(0,0,0,0.035);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 2rem; height: 1px; background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 600;
+      color: #1a1812;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.15em;
+    }
+    h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+    .hero-subtitle {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #5a5248;
+      margin-top: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-summary {
+      max-width: 540px;
+      color: #3d3830;
+      line-height: 1.85;
+      font-size: 13px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-contact { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .contact-item {
+      display: flex; align-items: center; gap: 0.45rem;
+      color: #5a5248; font-size: 11px;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item:hover { color: var(--accent); }
+    .contact-item .icon { width: 13px; height: 13px; opacity: 0.6; }
+
+    /* ── Section header ── */
+    .section-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-top: 0.5rem;
+    }
+    .section-label {
+      font-size: 9px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--accent);
+      white-space: nowrap;
+    }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+    .section-num { font-size: 9px; color: #5a5248; letter-spacing: 0.1em; }
+
+    /* ── Experience ── */
+    #experience { padding: 3rem 0 2rem; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .exp-period {
+      font-size: 10px; letter-spacing: 0.08em;
+      color: var(--accent); margin-bottom: 0.3rem;
+    }
+    .exp-company {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px; font-weight: 600;
+      color: #5a5248;
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .exp-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 600;
+      color: #1a1812;
+      margin-bottom: 0.6rem; line-height: 1.2;
+    }
+    .exp-desc { color: #3d3830; font-size: 12.5px; line-height: 1.8; }
+
+    .exp-bullets { list-style: none; margin-top: 0.5rem; }
+    .exp-bullets li {
+      position: relative; padding-left: 1.1rem;
+      color: #3d3830; font-size: 12px;
+      margin-bottom: 0.3rem; line-height: 1.65;
+    }
+    .exp-bullets li::before {
+      content: '—'; position: absolute; left: 0;
+      color: var(--accent); opacity: 0.6;
+    }
+
+    /* ── Skills ── */
+    #skills { padding: 2.5rem 0; background: var(--surface); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .skill-card {
+      background: var(--surface); padding: 1.4rem;
+      transition: background 0.2s;
+    }
+    .skill-card:hover { background: var(--highlight); }
+    .skill-cat {
+      font-size: 9px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      font-size: 12px; color: #3d3830;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .skill-list li:last-child { border-bottom: none; }
+
+    /* ── Education ── */
+    #education { padding: 2.5rem 0; }
+
+    .edu-block {
+      border: 1px solid var(--border);
+      padding: 2rem;
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 1.5rem;
+      background: var(--highlight);
+    }
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: #1a1812; margin-bottom: 0.4rem;
+    }
+    .edu-school { color: #5a5248; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .edu-gpa { text-align: right; }
+    .gpa-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 400;
+      color: var(--accent); line-height: 1;
+    }
+    .gpa-label { font-size: 9px; color: #5a5248; letter-spacing: 0.2em; text-transform: uppercase; }
+
+    /* ── Languages ── */
+    #languages { padding: 2.5rem 0 3rem; }
+    .lang-row { display: flex; gap: 2.5rem; }
+    .lang-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .lang-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #1a1812; font-weight: 600; }
+    .lang-level { font-size: 10px; color: #5a5248; letter-spacing: 0.15em; text-transform: uppercase; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex; justify-content: space-between;
+      align-items: center; font-size: 10px;
+      color: #5a5248; letter-spacing: 0.08em;
+    }
+    .footer-name {
+      color: var(--accent); font-family: 'Syne', sans-serif;
+      font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content > * { animation: fadeInUp 0.7s ease both; }
+    .hero-eyebrow  { animation-delay: 0.1s; }
+    h1             { animation-delay: 0.2s; }
+    .hero-subtitle { animation-delay: 0.3s; }
+    .hero-summary  { animation-delay: 0.38s; }
+    .hero-contact  { animation-delay: 0.45s; }
+
+    .exp-item, .edu-block {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .exp-item.visible, .edu-block.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      nav { padding: 0.9rem 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .container { padding: 0 1rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.3rem; }
+      .edu-block { flex-direction: column; }
+      .edu-gpa { text-align: left; }
+      footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">Y·A</div>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-grid-line"></div>
+    <div class="hero-grid-line"></div>
+    <div class="hero-grid-line"></div>
+    <div class="hero-bg-text">Adady</div>
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Portfolio &amp; Resume</p>
+        <h1>Yarden <em>Adady</em></h1>
+        <p class="hero-subtitle">Information Systems &amp; Business Administration</p>
+        <p class="hero-summary">
+          Motivated and curious student with hands-on experience in technical
+          instruction across military and healthcare environments. Familiar with
+          medical and organizational systems including AS/400, Qflow, Salesforce,
+          and SAP CRM. Fast learner, team player, and passionate about technology
+          and problem-solving.
+        </p>
+        <div class="hero-contact">
+          <a class="contact-item" href="tel:0534297512">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            053-429-7512
+          </a>
+          <a class="contact-item" href="mailto:yardenadady07@gmail.com">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            yardenadady07@gmail.com
+          </a>
+          <span class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Hod HaSharon, Israel
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Professional Experience</span>
+        <div class="section-line"></div>
+        <span class="section-num">01</span>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2024 — Present</p>
+          <p class="exp-company">Peres Academic Center</p>
+        </div>
+        <div>
+          <h3 class="exp-title">B.A. Student — Information Systems &amp; Business Administration</h3>
+          <p class="exp-desc">Currently pursuing a bachelor's degree combining technological knowledge and business thinking. GPA: 95/100.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2020 — 2022</p>
+          <p class="exp-company">Ministry of Defense</p>
+        </div>
+        <div>
+          <h3 class="exp-title">External Consultant</h3>
+          <p class="exp-desc">Professional consultancy role — specific project details remain classified.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2019 — 2022</p>
+          <p class="exp-company">Ness Technologies</p>
+        </div>
+        <div>
+          <h3 class="exp-title">T Systems Instructor</h3>
+          <ul class="exp-bullets">
+            <li>Conducted training for Leumit Health Services project</li>
+            <li>Worked with AS/400, Qflow, Salesforce, SAP-CRM</li>
+            <li>Trained medical staff in clinics across the country</li>
+            <li>Developed training materials and user guides</li>
+            <li>Trained doctors, nurses, receptionists, and clinic managers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2019</p>
+          <p class="exp-company">Hillel Yaffe — John Bryce</p>
+        </div>
+        <div>
+          <h3 class="exp-title">Camillion Instructor</h3>
+          <ul class="exp-bullets">
+            <li>Frontal and individual training for medical teams</li>
+            <li>Developed materials and improved existing processes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2017 — 2019</p>
+          <p class="exp-company">Israeli Air Force</p>
+        </div>
+        <div>
+          <h3 class="exp-title">Galaxy System Instructor</h3>
+          <ul class="exp-bullets">
+            <li>Instructed Galaxy system for operational HQ officers</li>
+            <li>Planned and delivered training content, lesson plans, exercises</li>
+            <li>Frontal and individual instruction formats</li>
+            <li>Led simulations, drills, and training days for HQ units</li>
+            <li>Trained soldiers and commanders for operational Air Force roles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Technical Skills</span>
+        <div class="section-line"></div>
+        <span class="section-num">02</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <p class="skill-cat">Programming</p>
+          <ul class="skill-list">
+            <li>Python</li><li>Java</li><li>HTML &amp; CSS</li><li>JavaScript</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <p class="skill-cat">Data &amp; Analytics</p>
+          <ul class="skill-list">
+            <li>SQL</li><li>Tableau</li><li>Power BI</li><li>Advanced Excel</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <p class="skill-cat">Enterprise</p>
+          <ul class="skill-list">
+            <li>Salesforce</li><li>SAP CRM</li><li>AS/400</li><li>Qflow</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <p class="skill-cat">Tools</p>
+          <ul class="skill-list">
+            <li>Jira</li><li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Education</span>
+        <div class="section-line"></div>
+        <span class="section-num">03</span>
+      </div>
+      <div class="edu-block">
+        <div>
+          <h3 class="edu-degree">B.A. Information Systems &amp;<br>Business Administration</h3>
+          <p class="edu-school">Peres Academic Center · 2024 — Present</p>
+        </div>
+        <div class="edu-gpa">
+          <div class="gpa-value">95</div>
+          <p class="gpa-label">GPA / 100</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section id="languages">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Languages</span>
+        <div class="section-line"></div>
+        <span class="section-num">04</span>
+      </div>
+      <div class="lang-row">
+        <div class="lang-item">
+          <span class="lang-name">Hebrew</span>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level">Professional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-name">Yarden Adady</span>
+    <span>yardenadady07@gmail.com</span>
+    <span>Hod HaSharon, Israel</span>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.exp-item, .edu-block').forEach(el => observer.observe(el));
+
+    // Nav smooth scroll — works on file://, WebView, GitHub Pages
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.getElementById(this.getAttribute('href').slice(1));
+        if (!target) return;
+        const navH = document.querySelector('nav').offsetHeight;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - navH - 8, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
