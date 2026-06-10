@@ -9,18 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Mono:wght@300;400&family=Syne:wght@600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:        #f7f5f0;
-      --surface:   #eeeae2;
-      --border:    rgba(0,0,0,0.1);
-      --accent:    #9a7040;
-      --text:      #1a1812;
-      --muted:     #5a5248;
+      --bg: #f7f5f0;
+      --surface: #eeeae2;
+      --border: rgba(0,0,0,0.1);
+      --accent: #9a7040;
+      --text: #1a1812;
+      --muted: #5a5248;
       --highlight: rgba(154,112,64,0.07);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; background: #f7f5f0; }
-
     body {
       background: #f7f5f0;
       color: #1a1812;
@@ -30,8 +28,6 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
-
-    /* ── Nav ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -63,11 +59,7 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
-
-    /* ── Container ── */
     .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-
-    /* ── Hero ── */
     #hero {
       padding: 5.5rem 0 2.5rem;
       position: relative;
@@ -80,7 +72,6 @@
     .hero-grid-line:nth-child(1) { left: 25%; }
     .hero-grid-line:nth-child(2) { left: 50%; }
     .hero-grid-line:nth-child(3) { left: 75%; }
-
     .hero-bg-text {
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
@@ -92,9 +83,7 @@
       pointer-events: none;
       user-select: none;
     }
-
     .hero-content { position: relative; z-index: 1; }
-
     .hero-eyebrow {
       font-size: 10px;
       letter-spacing: 0.25em;
@@ -107,7 +96,6 @@
       content: ''; display: block;
       width: 2rem; height: 1px; background: var(--accent);
     }
-
     h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3rem, 8vw, 6rem);
@@ -118,7 +106,6 @@
       margin-bottom: 0.15em;
     }
     h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
-
     .hero-subtitle {
       font-family: 'Syne', sans-serif;
       font-size: 0.75rem;
@@ -129,7 +116,6 @@
       margin-top: 1rem;
       margin-bottom: 1.2rem;
     }
-
     .hero-summary {
       max-width: 540px;
       color: #3d3830;
@@ -137,7 +123,6 @@
       font-size: 13px;
       margin-bottom: 1.5rem;
     }
-
     .hero-contact { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
     .contact-item {
       display: flex; align-items: center; gap: 0.45rem;
@@ -148,8 +133,6 @@
     }
     .contact-item:hover { color: var(--accent); }
     .contact-item .icon { width: 13px; height: 13px; opacity: 0.6; }
-
-    /* ── Section header ── */
     .section-header {
       display: flex; align-items: center; gap: 1rem;
       margin-bottom: 1.5rem;
@@ -162,10 +145,7 @@
     }
     .section-line { flex: 1; height: 1px; background: var(--border); }
     .section-num { font-size: 9px; color: #5a5248; letter-spacing: 0.1em; }
-
-    /* ── Experience ── */
     #experience { padding: 3rem 0 2rem; }
-
     .exp-item {
       display: grid;
       grid-template-columns: 140px 1fr;
@@ -173,7 +153,6 @@
       padding: 1.5rem 0;
       border-top: 1px solid var(--border);
     }
-
     .exp-period {
       font-size: 10px; letter-spacing: 0.08em;
       color: var(--accent); margin-bottom: 0.3rem;
@@ -191,7 +170,6 @@
       margin-bottom: 0.6rem; line-height: 1.2;
     }
     .exp-desc { color: #3d3830; font-size: 12.5px; line-height: 1.8; }
-
     .exp-bullets { list-style: none; margin-top: 0.5rem; }
     .exp-bullets li {
       position: relative; padding-left: 1.1rem;
@@ -202,10 +180,7 @@
       content: '—'; position: absolute; left: 0;
       color: var(--accent); opacity: 0.6;
     }
-
-    /* ── Skills ── */
     #skills { padding: 2.5rem 0; background: var(--surface); }
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -229,10 +204,7 @@
       border-bottom: 1px solid rgba(0,0,0,0.05);
     }
     .skill-list li:last-child { border-bottom: none; }
-
-    /* ── Education ── */
     #education { padding: 2.5rem 0; }
-
     .edu-block {
       border: 1px solid var(--border);
       padding: 2rem;
@@ -253,15 +225,11 @@
       color: var(--accent); line-height: 1;
     }
     .gpa-label { font-size: 9px; color: #5a5248; letter-spacing: 0.2em; text-transform: uppercase; }
-
-    /* ── Languages ── */
     #languages { padding: 2.5rem 0 3rem; }
     .lang-row { display: flex; gap: 2.5rem; }
     .lang-item { display: flex; flex-direction: column; gap: 0.2rem; }
     .lang-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #1a1812; font-weight: 600; }
     .lang-level { font-size: 10px; color: #5a5248; letter-spacing: 0.15em; text-transform: uppercase; }
-
-    /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 1.5rem 2rem;
@@ -273,8 +241,6 @@
       color: var(--accent); font-family: 'Syne', sans-serif;
       font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
     }
-
-    /* ── Animations ── */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -285,14 +251,11 @@
     .hero-subtitle { animation-delay: 0.3s; }
     .hero-summary  { animation-delay: 0.38s; }
     .hero-contact  { animation-delay: 0.45s; }
-
     .exp-item, .edu-block {
       opacity: 0; transform: translateY(16px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .exp-item.visible, .edu-block.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── Responsive ── */
     @media (max-width: 600px) {
       nav { padding: 0.9rem 1.2rem; }
       .nav-links { gap: 1rem; }
@@ -306,7 +269,6 @@
 </head>
 <body>
 
-  <!-- Nav -->
   <nav>
     <div class="nav-logo">Y·A</div>
     <ul class="nav-links">
@@ -316,7 +278,6 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
   <section id="hero">
     <div class="hero-grid-line"></div>
     <div class="hero-grid-line"></div>
@@ -352,7 +313,6 @@
     </div>
   </section>
 
-  <!-- Experience -->
   <section id="experience">
     <div class="container">
       <div class="section-header">
@@ -369,17 +329,6 @@
         <div>
           <h3 class="exp-title">B.A. Student — Information Systems &amp; Business Administration</h3>
           <p class="exp-desc">Currently pursuing a bachelor's degree combining technological knowledge and business thinking. GPA: 95/100.</p>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <p class="exp-period">2020 — 2022</p>
-          <p class="exp-company">Ministry of Defense</p>
-        </div>
-        <div>
-          <h3 class="exp-title">External Consultant</h3>
-          <p class="exp-desc">Professional consultancy role — specific project details remain classified.</p>
         </div>
       </div>
 
@@ -433,7 +382,6 @@
     </div>
   </section>
 
-  <!-- Skills -->
   <section id="skills">
     <div class="container">
       <div class="section-header">
@@ -470,7 +418,6 @@
     </div>
   </section>
 
-  <!-- Education -->
   <section id="education">
     <div class="container">
       <div class="section-header">
@@ -491,7 +438,6 @@
     </div>
   </section>
 
-  <!-- Languages -->
   <section id="languages">
     <div class="container">
       <div class="section-header">
@@ -512,7 +458,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <span class="footer-name">Yarden Adady</span>
     <span>yardenadady07@gmail.com</span>
@@ -520,14 +465,12 @@
   </footer>
 
   <script>
-    // Fade-in on scroll
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
       { threshold: 0.1 }
     );
     document.querySelectorAll('.exp-item, .edu-block').forEach(el => observer.observe(el));
 
-    // Nav smooth scroll — works on file://, WebView, GitHub Pages
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
